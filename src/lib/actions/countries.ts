@@ -43,7 +43,7 @@ export async function createCountries(datas: (typeof countriesTable.$inferInsert
       .insert(countriesTable)
       .values(datas)
       .onConflictDoUpdate({
-        target: [countriesTable.iso3Code],
+        target: [countriesTable.code],
         set: {
           name: sql`excluded.name`,
           geojsonUrl: sql`excluded.geojson_url`,

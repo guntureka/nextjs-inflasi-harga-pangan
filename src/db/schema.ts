@@ -4,7 +4,7 @@ import { date, integer, pgTable, real, text, timestamp, unique, uuid, varchar } 
 export const countriesTable = pgTable("countries", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: varchar("name", { length: 50 }).notNull(),
-  iso3Code: varchar("iso_3_code", { length: 3 }).notNull().unique(),
+  code: varchar("code", { length: 3 }).notNull().unique(),
   currency: varchar("currency", { length: 3 }).notNull(),
   geojsonUrl: text("geojson_url"),
   createdAt: timestamp("created_at").defaultNow(),

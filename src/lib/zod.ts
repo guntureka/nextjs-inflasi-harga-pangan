@@ -1,10 +1,10 @@
 import { z } from "zod";
 
 export const CountrySchema = z.object({
-  name: z.string().max(50),
-  iso3Code: z.string().min(3).max(3),
+  name: z.string().min(1, "Name is required.").max(50),
+  code: z.string().min(3).max(3),
   currency: z.string().min(3).max(3),
-  geojsonUrl: z.string().url().optional(),
+  geojson: z.instanceof(File).optional(),
 });
 
 export const FoodSchema = z.object({
